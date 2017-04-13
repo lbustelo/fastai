@@ -1,10 +1,4 @@
 # fastai
-<<<<<<< HEAD
-Supporting scripts to do http://course.fast.ai/start.html
-
-## Makefile
-`make help` to see what is available
-=======
 
 These are a set of scripts to help with the Fast.ai DL [course](http://course.fast.ai/)
 
@@ -61,4 +55,7 @@ Run `make connect` to ssh into the current instance.
 #### Opening the Jupyter notebook
 
 Run `make nb` and the Chrome will open the right URL. Note that this command assumes OSX.
->>>>>>> Some instructions in the README
+
+
+### Resources
+* AWS API - http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html
