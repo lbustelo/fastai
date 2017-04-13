@@ -32,8 +32,8 @@ the Fast.ai provided scripts. The goal is 2 instances that can share the same Vo
 3. Verify that the instance was created in AWS console
 4. Change the name of the new instance to be different than the gpu one. (i.e call it `fast-ai-munging-machine`)
 5. Stop the instance if it is running
-6. Go to the [Volumes](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Volumes:sort=desc:createTime) section in AWS Console and `Detach` and `Delete` the volume that was created for the `t2-micro` image.
-7. `Detach` the volume assigned to the `p2-xlarge` instance and `Attach` it to the `t2-micro`. Note that for all this to work, both instances need to be stopped. (TODO: Automate all this!)
+6. Go to the [Volumes](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Volumes:sort=desc:createTime) section in AWS Console and `Detach` and `Delete` the volume that was created for the `t2-micro` image. HINT: Most likely the one with the most recent date.
+7. `Detach` the volume assigned to the `p2-xlarge` instance and `Attach` it to the `t2-micro`. Make sure that you set the `Device` to `/dev/sda1`. Note that for all this to work, both instances need to be stopped. (TODO: Automate all this!)
 
 NOTE: Moving the volume to the correct instance is **manual**.
 
