@@ -46,8 +46,13 @@ stop: .aws-instance-id
 stop: ## Stops the instance
 	@instanceId=$$(cat .aws-instance-id); aws ec2 stop-instances --instance-ids $$instanceId
 
-status: ## Gets the status of all instances
-	@aws ec2 describe-instances --output table  --filters "Name=instance-type,Values=p2.xlarge,t2.micro" --query 'Reservations[].Instances[].[Tags[?Key==`Name`] | [0].Value, InstanceId, State.Name]'
+status: ## Gets the status of all instances & volumes
+	@aws ec2 describe-instances --output table \
+		--filters 'Name=instance-type, Values=p2.xlarge,t2.micro' \
+		--query 'Reservations[].Instances[].[Tags[?Key==`Name`] | [0].Value, InstanceId, State.Name]'
+	@aws ec2 describe-volumes --output table \
+		--filters 'Name=attachment.device, Values=/dev/sda1' \
+		--query 'Volumes[0].Attachments[].[Device, State, InstanceId]'
 
 id: .aws-instance-id
 id: ## Gets the IP of the instance
